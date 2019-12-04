@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TravelCar</string>
+    <string name="tab_text_1">Voiture</string>
+    <string name="tab_text_2">Profile</string>
+    <string name="search_hint">Chercher une voiture</string>
+    <string name="action_search">search</string>
+
+
+</resources>
