@@ -17,17 +17,17 @@ class CarViewModel : ViewModel() {
     //create a coroutine scope with the coroutine context
     private val scope = CoroutineScope(coroutineContext)
     //initialize news repo
-    private val labsRepository: CarRepository = CarRepository(Apifactory.Api)
+    private val carRepository: CarRepository = CarRepository(Apifactory.Api)
     //live data that will be populated as news updates
     val labsLiveData = MutableLiveData<MutableList<CarResponse>>()
 
-    fun getLabs() {
+    fun getCars() {
         ///launch the coroutine scope
         scope.launch {
             //get latest news from news repo
-            val latestNews = labsRepository.getLabs()
+            val latescar = carRepository.getcar()
             //post the value inside live data
-            labsLiveData.postValue(latestNews)
+            labsLiveData.postValue(latescar)
 
         }
     }

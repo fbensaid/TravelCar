@@ -1,7 +1,7 @@
 package com.farouk.travelcar.data.remoteApi
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.mtp.laboproject.global.Constants
+import com.farouk.travelcar.global.Constants
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

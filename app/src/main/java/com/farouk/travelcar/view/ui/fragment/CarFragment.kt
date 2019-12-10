@@ -10,12 +10,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.farouk.travelcar.R
 import com.farouk.travelcar.data.model.CarResponse
 import com.farouk.travelcar.view.adapter.CarAdapter
-import com.farouk.travelcar.view.factory.LabsViewModelFactory
+import com.farouk.travelcar.view.factory.CarViewModelFactory
 import com.farouk.travelcar.view.listener.CarClickListener
 import com.farouk.travelcar.view.viewmodel.CarViewModel
 import kotlinx.android.synthetic.main.fragment_car.*
-import android.view.MenuInflater
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 /**
@@ -25,6 +23,7 @@ class CarFragment : Fragment(), CarClickListener {
 
     private lateinit var labsViewModel: CarViewModel
     private lateinit var laboAdapter: CarAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,17 +41,17 @@ class CarFragment : Fragment(), CarClickListener {
 
 
     private fun setRepo() {
-        val factory = LabsViewModelFactory()
+        val factory = CarViewModelFactory()
         labsViewModel = ViewModelProviders.of(this, factory)
             .get(CarViewModel::class.java)
-        labsViewModel.getLabs()
+        labsViewModel.getCars()
         labsViewModel.labsLiveData.observe(viewLifecycleOwner, Observer { laboratory ->
             recycleview_laboratory.also {
                 it.layoutManager = GridLayoutManager(requireContext(), 2)
                 it.setHasFixedSize(true)
                 laboAdapter = CarAdapter(laboratory, this)
                 it.adapter = laboAdapter
-                //searchLaboratory()
+                searchLaboratory()
             }
         })
     }
@@ -73,7 +72,7 @@ class CarFragment : Fragment(), CarClickListener {
 
 
     override fun onRecyclerViewItemClick(view: View, labo: CarResponse) {
-        DetailsLaboBottomSheet().show(fragmentManager!!, "tessst")
+        DetailsCarBottomSheet().show(fragmentManager!!, "tessst")
     }
 
 

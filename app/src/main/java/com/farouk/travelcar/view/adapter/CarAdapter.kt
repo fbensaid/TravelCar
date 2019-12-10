@@ -9,41 +9,41 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.farouk.travelcar.data.model.CarResponse
-import com.farouk.travelcar.databinding.RecycleviewLaboratoryBinding
+import com.farouk.travelcar.databinding.RecycleviewCarBinding
 import com.farouk.travelcar.view.listener.CarClickListener
 import com.squareup.picasso.Picasso
 import com.farouk.travelcar.R
 
 
 class CarAdapter(
-    private val listofLaboratory: List<CarResponse>,
+    private val listofCar: List<CarResponse>,
     private val listner: CarClickListener
 
 ) : RecyclerView.Adapter<CarAdapter.CarViewHolder>(), Filterable {
-    private var filtredListofLaboratory = listofLaboratory
+    private var filtredListofCar = listofCar
     private var resultListOfSearch = arrayListOf<CarResponse>()
 
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(p0: CharSequence?): FilterResults {
-                filtredListofLaboratory = if (p0.isNullOrEmpty())
-                    listofLaboratory
+                filtredListofCar = if (p0.isNullOrEmpty())
+                    listofCar
                 else {
                     resultListOfSearch.clear()
-                    listofLaboratory.forEach {
-                        if (it.picture.toLowerCase().contains(p0.toString()))
+                    listofCar.forEach {
+                        if (it.model.toLowerCase().contains(p0.toString()))
                             resultListOfSearch.add(it)
                     }
                     resultListOfSearch
                 }
                 var filtredResult = FilterResults()
-                filtredResult.values = filtredListofLaboratory
+                filtredResult.values = filtredListofCar
                 return filtredResult
             }
 
             override fun publishResults(p0: CharSequence?, filtredResult: FilterResults?) {
-                filtredListofLaboratory = listOf()
-                filtredListofLaboratory = filtredResult!!.values as List<CarResponse>
+                filtredListofCar= listOf()
+                filtredListofCar = filtredResult!!.values as List<CarResponse>
                 notifyDataSetChanged()
             }
         }
@@ -58,13 +58,13 @@ class CarAdapter(
     }
 
     override fun getItemCount(): Int {
-        return filtredListofLaboratory.size
+        return filtredListofCar.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CarViewHolder(
         DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.recycleview_laboratory,
+            R.layout.recycleview_car,
             parent,
             false
         )
@@ -72,12 +72,12 @@ class CarAdapter(
 
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
         holder.recycleviewLaboratoryBinding.laboratoryListResponseData =
-            filtredListofLaboratory[position]
+            filtredListofCar[position]
 
         holder.recycleviewLaboratoryBinding.cardView.setOnClickListener {
             listner.onRecyclerViewItemClick(
                 holder.recycleviewLaboratoryBinding.cardView,
-                filtredListofLaboratory[position]
+                filtredListofCar[position]
             )
         }
 
@@ -85,7 +85,7 @@ class CarAdapter(
 
 
     inner class CarViewHolder(
-        val recycleviewLaboratoryBinding: RecycleviewLaboratoryBinding
+        val recycleviewLaboratoryBinding: RecycleviewCarBinding
     ) : RecyclerView.ViewHolder(recycleviewLaboratoryBinding.root)
 }
 

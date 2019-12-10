@@ -9,7 +9,7 @@ import com.farouk.travelcar.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class DetailsLaboBottomSheet : BottomSheetDialogFragment() {
+class DetailsCarBottomSheet : BottomSheetDialogFragment() {
 
     @Nullable
     override fun onCreateView(
@@ -28,8 +28,8 @@ class DetailsLaboBottomSheet : BottomSheetDialogFragment() {
     }
 
     companion object {
-        fun newInstance(): DetailsLaboBottomSheet {
-            return DetailsLaboBottomSheet()
+        fun newInstance(): DetailsCarBottomSheet {
+            return DetailsCarBottomSheet()
         }
     }
 }

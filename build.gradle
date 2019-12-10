@@ -30,3 +30,7 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+ext {
+    //android
+    daggerVersion = '2.11'
+}

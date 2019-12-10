@@ -32,11 +32,11 @@
 
         <ImageView
             android:id="@+id/car_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_100dp"
+            android:src="@{laboratoryListResponseData.picture}"
             android:layout_gravity="center"
-            android:scaleType="centerCrop"
+            android:scaleType="centerInside"
       ></ImageView>
 
 
@@ -56,9 +56,6 @@
                 android:textStyle="bold"
 
                 />
-
-
-
 
 
         </LinearLayout>

@@ -1,7 +1,7 @@
 package com.farouk.travelcar.data.remoteApi
 
 import com.farouk.travelcar.data.model.CarResponse
-import com.mtp.laboproject.global.Constants
+import com.farouk.travelcar.global.Constants
 
 import kotlinx.coroutines.Deferred
 import retrofit2.Response

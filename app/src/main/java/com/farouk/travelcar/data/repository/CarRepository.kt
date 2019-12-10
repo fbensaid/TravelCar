@@ -8,7 +8,7 @@ import com.farouk.travelcar.data.remoteApi.ApiInterface
 class CarRepository(private val api: ApiInterface) : BaseRepository() {
 
     //get latest news using safe api call
-    suspend fun getLabs() :  MutableList<CarResponse>?{
+    suspend fun getcar() :  MutableList<CarResponse>?{
         return safeApiCall(
             //await the result of deferred type
             call = {api.getCarList().await()},
