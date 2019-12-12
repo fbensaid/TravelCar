@@ -4,6 +4,10 @@
     <string name="tab_text_2">Profile</string>
     <string name="search_hint">Chercher une voiture</string>
     <string name="action_search">search</string>
+    <string name="OK">OK</string>
+    <string name="NO">no</string>
+    <string name="permission_denied">Permission refusé</string>
+    <string name="ask_permission">Demande de permission</string>
 
 
 </resources>

@@ -37,6 +37,7 @@ dependencies {
     def retrofit_version = "2.6.0"
     def work_version = "2.2.0"
     def anko_version='0.10.8'
+    def dispatcher_version='4.6.0'
 
 
     // Kotlin + coroutines
@@ -100,5 +101,8 @@ dependencies {
     implementation "com.google.dagger:dagger:2.11"
     kapt "android.arch.persistence.room:compiler:1.1.1"
     kapt "com.google.dagger:dagger-compiler:2.11"
+
+    implementation "org.permissionsdispatcher:permissionsdispatcher:$dispatcher_version"
+    kapt "org.permissionsdispatcher:permissionsdispatcher-processor:$dispatcher_version"
 
 }

@@ -1,4 +1,4 @@
-package com.mtp.laboproject.global
+package com.farouk.travelcar.global
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

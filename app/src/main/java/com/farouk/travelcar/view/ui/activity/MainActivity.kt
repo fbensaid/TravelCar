@@ -1,10 +1,8 @@
 package com.farouk.travelcar.view.ui.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import androidx.annotation.Nullable
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +11,6 @@ import com.farouk.travelcar.TravelCarApplication
 import com.farouk.travelcar.data.repository.UserRepository
 import com.farouk.travelcar.view.adapter.SectionsPagerAdapter
 import javax.inject.Inject
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,8 +37,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        //send data to all fragment if need
         for (fragment in supportFragmentManager.fragments) {
             fragment.onActivityResult(requestCode, resultCode, data)
         }
     }
+
+
+
+
 }
