@@ -31,10 +31,8 @@ open class DetailsCarBottomSheet : BottomSheetDialogFragment() {
         val binding:BottomSheetDetailsCarBinding = inflate(
             inflater, R.layout.bottom_sheet_details_car, container, false
         )
-        val view = binding.root
-        //here data must be an instance of the class MarsDataProvider
         binding.temp=car
-        return view
+        return  binding.root
     }
 
         companion object {

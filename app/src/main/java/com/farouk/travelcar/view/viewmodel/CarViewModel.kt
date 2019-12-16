@@ -24,7 +24,7 @@ class CarViewModel : ViewModel() {
     fun getCars() {
         ///launch the coroutine scope
         scope.launch {
-            //get latest news from news repo
+            //get latest car from news repo
             val latescar = carRepository.getcar()
             //post the value inside live data
             labsLiveData.postValue(latescar)

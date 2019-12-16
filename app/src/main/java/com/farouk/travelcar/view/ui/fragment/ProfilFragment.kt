@@ -18,7 +18,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import com.squareup.picasso.Picasso
-import android.net.Uri
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.farouk.travelcar.R
@@ -33,7 +32,7 @@ class ProfilFragment : Fragment() {
 
     @Inject
     lateinit var workoutRepository: UserRepository
-    private lateinit var dataUri: Uri
+    private  var dataUri: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,10 +57,12 @@ class ProfilFragment : Fragment() {
      private fun settingData(userData: UserResponse) {
         clearTextView()
          Picasso.get().load(userData!!.photoUrl).into(imagePicker)
+         // set image Uri
+         dataUri=userData!!.photoUrl
+
         email_user.text.append(userData.email.toString())
         phone_user.text.append(userData.phone.toString())
         name_user.text.append(userData.name.toString())
-
     }
 
     private fun clearTextView() {
@@ -82,7 +83,7 @@ class ProfilFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (data != null) {
-            dataUri = data.data!!
+            dataUri = data.data!!.toString()
             Picasso.get().load(dataUri).into(imagePicker)
         }
     }
@@ -95,7 +96,7 @@ class ProfilFragment : Fragment() {
                             name_user.text.toString(),
                             email_user.text.toString(),
                             phone_user.text.toString(),
-                            dataUri.toString() ?: "", 1
+                            dataUri.toString(), 1
                         )
                     )
             }
@@ -120,7 +121,7 @@ class ProfilFragment : Fragment() {
     @NeedsPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
     fun showImagePicker() {
         val photoPickerIntent = Intent(Intent.ACTION_PICK)
-        photoPickerIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        photoPickerIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         photoPickerIntent.type = "image/*"
         activity!!.startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG)
     }
