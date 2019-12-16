@@ -1,7 +1,6 @@
 package com.farouk.travelcar.view.ui.fragment
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

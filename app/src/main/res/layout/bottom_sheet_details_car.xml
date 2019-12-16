@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="temp"
+            type="com.farouk.travelcar.data.model.CarResponse"/>
+    </data>
+
+<LinearLayout
     android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,26 +20,36 @@
     app:behavior_peekHeight="90dp"
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <View
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_car"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@{temp.picture}"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_weight="4"
+            android:layout_margin="@dimen/dimen_10dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dandelion Chocolate"
+                android:text="@{temp.make}"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -44,13 +63,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4.7" />
+                    android:text="@{temp.model}"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:text="(51)" />
+                    android:text="@{temp.year}"
+                    />
 
             </LinearLayout>
 
@@ -61,18 +81,6 @@
                 android:layout_marginBottom="12dp"
                 android:background="#5d5d5d" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12 min away"
-                android:textColor="#5692F5" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:background="#5d5d5d" />
 
         </LinearLayout>
 
@@ -80,3 +88,4 @@
 
 
 </LinearLayout>
+</layout>

@@ -62,7 +62,6 @@ class CarFragment : Fragment(), CarClickListener {
                 laboAdapter.filter.filter(newText)
                 return false
             }
-
             override fun onQueryTextSubmit(query: String): Boolean {
                 laboAdapter.filter.filter(query)
                 return false
@@ -70,9 +69,8 @@ class CarFragment : Fragment(), CarClickListener {
         })
     }
 
-
-    override fun onRecyclerViewItemClick(view: View, labo: CarResponse) {
-        DetailsCarBottomSheet().show(fragmentManager!!, "tessst")
+    override fun onRecyclerViewItemClick(view: View, car: CarResponse) {
+        DetailsCarBottomSheet.newInstance(car).show(fragmentManager!!, "tessst")
     }
 
 

@@ -14,14 +14,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <ImageView
-                android:layout_marginTop="45dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:scaleType="center"
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/imagePicker"
-                android:src="@drawable/add_user_male"/>
+                android:layout_width="96dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="96dp"
+                android:src="@drawable/add_user_male"
+                android:layout_marginTop="45dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
+
+
             <EditText
                 android:layout_marginTop="10dp"
                 android:id="@+id/name_user"

@@ -14,7 +14,6 @@ import com.farouk.travelcar.view.listener.CarClickListener
 import com.squareup.picasso.Picasso
 import com.farouk.travelcar.R
 
-
 class CarAdapter(
     private val listofCar: List<CarResponse>,
     private val listner: CarClickListener
@@ -71,12 +70,12 @@ class CarAdapter(
     )
 
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
-        holder.recycleviewLaboratoryBinding.laboratoryListResponseData =
+        holder.recycleviewCaryBinding.carListResponseData =
             filtredListofCar[position]
 
-        holder.recycleviewLaboratoryBinding.cardView.setOnClickListener {
+        holder.recycleviewCaryBinding.cardView.setOnClickListener {
             listner.onRecyclerViewItemClick(
-                holder.recycleviewLaboratoryBinding.cardView,
+                holder.recycleviewCaryBinding.cardView,
                 filtredListofCar[position]
             )
         }
@@ -85,8 +84,8 @@ class CarAdapter(
 
 
     inner class CarViewHolder(
-        val recycleviewLaboratoryBinding: RecycleviewCarBinding
-    ) : RecyclerView.ViewHolder(recycleviewLaboratoryBinding.root)
+        val recycleviewCaryBinding: RecycleviewCarBinding
+    ) : RecyclerView.ViewHolder(recycleviewCaryBinding.root)
 }
 
 

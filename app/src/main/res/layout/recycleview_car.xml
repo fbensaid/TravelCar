@@ -5,7 +5,7 @@
     <data>
         <import type="android.view.View" />
         <variable
-            name="laboratoryListResponseData"
+            name="carListResponseData"
             type="com.farouk.travelcar.data.model.CarResponse" />
     </data>
 
@@ -34,10 +34,9 @@
             android:id="@+id/car_icon"
             android:layout_width="@dimen/dimen_100dp"
             android:layout_height="@dimen/dimen_100dp"
-            android:src="@{laboratoryListResponseData.picture}"
+            android:src="@{carListResponseData.picture}"
             android:layout_gravity="center"
-            android:scaleType="centerInside"
-      ></ImageView>
+            android:scaleType="centerInside"></ImageView>
 
 
         <LinearLayout
@@ -46,17 +45,20 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@{laboratoryListResponseData.model}"
+                android:text="@{carListResponseData.model}"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"
-
-                />
-
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{carListResponseData.make}"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
